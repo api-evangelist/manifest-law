@@ -1,8 +1,25 @@
 aid: manifest-law
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/manifest-law.png
 name: Manifest Law
-description: Manifest Law is a company surfaced as a portfolio company of menlo-ventures and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Manifest Law operates ManifestOS, a communication and case management platform for the
+  legal industry, and is backed by Menlo Ventures. The platform exposes a standards-based
+  OAuth 2.0 / OpenID Connect authorization server at app.manifestlaw.com, with an `api`
+  scope for programmatic access and dynamic OAuth client management (`oauth_clients:manage`).
+  This profile was enriched by the API Evangelist pipeline from Manifest Law's public
+  discovery documents; no OpenAPI specification was published at the time of enrichment.
 url: https://raw.githubusercontent.com/api-evangelist/manifest-law/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,15 +29,53 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Legal
+- Legal Tech
+- Case Management
+- Communication
+- OAuth
+- OpenID Connect
+apis:
+- name: ManifestOS API
+  description: >-
+    Programmatic surface behind ManifestOS, gated by the Manifest Law OAuth 2.0 / OpenID
+    Connect authorization server (issuer https://app.manifestlaw.com/api/auth, `api` scope).
+  humanURL: https://app.manifestlaw.com
+  baseURL: https://app.manifestlaw.com/api
+  properties:
+  - type: Authentication
+    url: authentication/manifest-law-authentication.yml
+  - type: OAuthScopes
+    url: scopes/manifest-law-scopes.yml
+  - type: WellKnown
+    url: well-known/manifest-law-well-known.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Authentication
+  url: authentication/manifest-law-authentication.yml
+- type: OAuthScopes
+  url: scopes/manifest-law-scopes.yml
+- type: WellKnown
+  url: well-known/manifest-law-well-known.yml
+- type: Conformance
+  url: conformance/manifest-law-conformance.yml
+- type: DomainSecurity
+  url: security/manifest-law-domain-security.yml
+- type: LLMsTxt
+  url: llms/manifest-law-llms.txt
+- type: Login
+  url: https://app.manifestlaw.com
 - type: Website
   url: https://manifestlaw.com
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1
