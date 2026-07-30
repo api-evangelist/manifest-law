@@ -1,0 +1,34 @@
+generated: '2026-07-20'
+method: searched
+source: https://app.manifestlaw.com/.well-known/openid-configuration
+docs: https://app.manifestlaw.com/.well-known/openid-configuration
+summary:
+  types: [oauth2, openIdConnect]
+  oauth2_flows: [authorizationCode, clientCredentials, refreshToken]
+  pkce: [S256]
+  notes: >-
+    Manifest Law (ManifestOS) publishes a standards-based OAuth 2.0 / OpenID Connect
+    authorization server at https://app.manifestlaw.com/api/auth. Discovery documents
+    are served at /.well-known/openid-configuration and /.well-known/oauth-authorization-server.
+    Dynamic client management is supported via the oauth_clients:manage scope, and an
+    "api" scope gates programmatic API access.
+schemes:
+- name: OpenIDConnect
+  type: openIdConnect
+  openIdConnectUrl: https://app.manifestlaw.com/.well-known/openid-configuration
+  issuer: https://app.manifestlaw.com/api/auth
+  sources: [well-known/manifest-law-openid-configuration.json]
+- name: OAuth2
+  type: oauth2
+  issuer: https://app.manifestlaw.com/api/auth
+  authorizationUrl: https://app.manifestlaw.com/api/auth/oauth2/authorize
+  tokenUrl: https://app.manifestlaw.com/api/auth/oauth2/token
+  introspectionUrl: https://app.manifestlaw.com/api/auth/oauth2/introspect
+  revocationUrl: https://app.manifestlaw.com/api/auth/oauth2/revoke
+  userinfoUrl: https://app.manifestlaw.com/api/auth/oauth2/userinfo
+  endSessionUrl: https://app.manifestlaw.com/api/auth/oauth2/end-session
+  flows: [authorizationCode, clientCredentials, refreshToken]
+  code_challenge_methods: [S256]
+  token_endpoint_auth_methods: [client_secret_basic, client_secret_post]
+  id_token_signing_alg: [HS256]
+  sources: [well-known/manifest-law-oauth-authorization-server.json]

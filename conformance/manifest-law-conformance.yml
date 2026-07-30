@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://app.manifestlaw.com/.well-known/openid-configuration
+standards:
+- id: oauth2
+  conforms: true
+  evidence: RFC 8414 oauth-authorization-server metadata published at app.manifestlaw.com/.well-known/oauth-authorization-server
+- id: oidc
+  conforms: true
+  evidence: OpenID Connect Discovery document published at app.manifestlaw.com/.well-known/openid-configuration (issuer, userinfo_endpoint, id_token signing)
+- id: rfc8414-as-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with full authorization-server metadata
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256
+- id: rfc7662-token-introspection
+  conforms: true
+  evidence: introspection_endpoint published (app.manifestlaw.com/api/auth/oauth2/introspect)
+- id: rfc7009-token-revocation
+  conforms: true
+  evidence: revocation_endpoint published (app.manifestlaw.com/api/auth/oauth2/revoke)
+- id: rfc9207-iss-parameter
+  conforms: true
+  evidence: authorization_response_iss_parameter_supported is true
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no OpenAPI or error reference available to confirm

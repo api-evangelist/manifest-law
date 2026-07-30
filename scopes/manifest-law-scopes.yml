@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+source: https://app.manifestlaw.com/.well-known/openid-configuration
+docs: https://app.manifestlaw.com/.well-known/oauth-authorization-server
+schemes:
+- name: OAuth2
+  source: well-known/manifest-law-oauth-authorization-server.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://app.manifestlaw.com/api/auth/oauth2/authorize
+    tokenUrl: https://app.manifestlaw.com/api/auth/oauth2/token
+  - flow: clientCredentials
+    tokenUrl: https://app.manifestlaw.com/api/auth/oauth2/token
+  - flow: refreshToken
+    tokenUrl: https://app.manifestlaw.com/api/auth/oauth2/token
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; issue an ID token.
+  flows: [authorizationCode]
+  sources: [well-known/manifest-law-openid-configuration.json]
+- scope: profile
+  description: Access basic profile claims (name, picture, given/family name).
+  flows: [authorizationCode]
+  sources: [well-known/manifest-law-openid-configuration.json]
+- scope: email
+  description: Access the user's email and email_verified claims.
+  flows: [authorizationCode]
+  sources: [well-known/manifest-law-openid-configuration.json]
+- scope: offline_access
+  description: Issue a refresh token for long-lived access.
+  flows: [authorizationCode, refreshToken]
+  sources: [well-known/manifest-law-openid-configuration.json]
+- scope: api
+  description: Programmatic access to the Manifest Law (ManifestOS) API.
+  flows: [authorizationCode, clientCredentials]
+  sources: [well-known/manifest-law-openid-configuration.json]
+- scope: profile:full
+  description: Access the full profile record.
+  flows: [authorizationCode]
+  sources: [well-known/manifest-law-openid-configuration.json]
+- scope: oauth_clients:manage
+  description: Manage OAuth client registrations (dynamic client management).
+  flows: [authorizationCode, clientCredentials]
+  sources: [well-known/manifest-law-openid-configuration.json]
