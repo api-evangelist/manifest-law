@@ -48,7 +48,6 @@ tags:
 - Case Management
 - Communications
 - Authentication
-- OpenID Connect
 tags_raw:
 - Company
 - Legal
@@ -56,7 +55,6 @@ tags_raw:
 - Case Management
 - Communication
 - OAuth
-- OpenID Connect
 apis:
 - name: ManifestOS API
   description: >-
@@ -98,3 +96,5 @@ x-enrichment:
   status: enriched
   artifacts_added: 8
   pass: local-v1
+x-tags-removed:
+- OpenID Connect
